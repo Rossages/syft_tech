@@ -1,0 +1,31 @@
+		{ 0x200000,0xFF0FF0,NULL,DATA_INT,  readDacChannel               , writeDacChannel                 ,  "	Set/Get the voltage on DAC N channel n (12 bit integer)	" }                                                 ,
+		{ 0x200100,0xFF0FF0,NULL,DATA_INT,  NULL                         , writeDacChannelNoUpdate         ,  "	Send value to the DAC N channel n register (12 bit integer)" }                                              ,
+		{ 0x200200,0xFF0FF0,NULL,DATA_INT,  readDacRange                 , writeDacRange                   ,  "	Set/Get voltage range (span) on DAC N channel n.	" }                                                        ,
+		{ 0x200300,0xFF0FFF,NULL,DATA_INT,  NULL                         , writeDacAllChannels             ,  "	Set the same voltage on DAC N all channels (12 bit integer)" }                                              ,
+		{ 0x200400,0xFF0FFF,NULL,DATA_INT,  NULL                         , writeDacRangeAllChannels        ,  "	Set all channels on DAC N to the same voltage range (span)	" }                                              ,
+		{ 0x200500,0xFF0F00,NULL,DATA_INT,  readMuxOutChannel            , writeMuxOutChannel              ,  "	Route a channel on DAC N to the Mux output pin on the LTC DAC chip." }                                      ,
+		{ 0x200600,0xFF0FF0,NULL,DATA_INT,  NULL                         , writeDacUpdateChannel           ,  "	Update the output of DAC N channel n from its register	" }                                                  ,
+		{ 0x200700,0xFF0FFF,NULL,DATA_INT,  NULL                         , writeDacUpdateAllChannels       ,  "	Update the output of DAC N all channels from their registers	" }                                            ,
+		{ 0x200800,0xFF0FFF,NULL,DATA_INT,  NULL                         , writeDacPowerDown               ,  "	Power down the DAC Chip	" }                                                                                 ,
+		{ 0x200900,0xFF0FFF,NULL,DATA_INT,  readDacTemperature           , NULL                            ,  "	Get the DAC Chip temperature	" }                                                                            ,
+		{ 0x200A00,0xFF0FFF,NULL,DATA_INT,  NULL                         , writeDacDisableThermalProtection,  "	Enable (0) default or Disable (1) 160C thermal protection, Enabled by default	" }                           ,
+		{ 0x200B00,0xFF0FF0,NULL,DATA_INT,  readDacChannelStepSize       , writeDacChannelStepSize         ,  "	write and read DAC N channel n step size	" }                                                                ,
+
+		
+		{ 0x300000,0xFFFFFF,NULL,DATA_INT,  readHighVoltageLensSupply    , writeSetHighVoltageLensSupply   ,  "	Set/Get the High Voltage Lens Supply. e.g. 4095--> 2.5V is ±150V" }                                        ,,
+		{ 0x300100,0xFF0FF0,NULL,DATA_INT,  readHvLensSupplyStepSize     , WriteHvLensSupplyStepSize       ,  "	Set/Get HV Lens Supply stepsize (STM DACs channels 1 )	" }                                                  ,
+
+		{ 0x400000,0xFFFFF0,NULL,DATA_INT,  readDigitalInputGuage        , NULL                            ,  "	Get digital value on Guage Connector  	" }                                                                  ,
+		{ 0x400100,0xFFFFFF,NULL,DATA_INT,  readPulseTestMode            , writePulseTestMode              ,  "	Turn on/off pulse circuit in test mode, if this is on, it overrides the normal mode	" }                     ,
+		{ 0x400200,0xFFFFFF,NULL,DATA_INT,  readPulseOn                  , writePulseOn                    ,  "	Turn on/off the pulse circuit in normal mode	" }                                                            ,
+		{ 0x400200,0xFFFFFF,NULL,DATA_INT,  readGuageDout                , writeGuageDout                  ,  "	Set/Get digitl ouput on the Guage connector	" }                                                             ,
+		{ 0x400200,0xFFFFFF,NULL,DATA_INT,  readEnable15VSupply          , writeEnable15VSupply            ,  "	Turn on/off the 15V power supply for the DACs and ADCs" }                                                   ,
+
+		{ 0x500000,0xFF0FF0,NULL,DATA_INT,  readExternalAds8638Channel   , Null                            ,  "	read an ADC channel on ADS8638 (12 bit adc), Mostly lens's current and voltage readings	" }                 ,
+		{ 0x500100,0xFF0FF0,NULL,DATA_INT,  readAds8638ChannelActualValue, NULL                            ,  "	read an actual value from an ADS8638 channel directly as 3 decimal fixed point intger. e.g. 5.72 as 5720 " },
+		{ 0x500200,0xFF0FF0,NULL,DATA_INT,  writeAds8638ChannelRange     , writeAds8638ChannelRange        ,  "	Set/get channel range on ADS8638 (or voltage span)" }                                                       ,
+		{ 0x500300,0xFFFFFF,NULL,DATA_INT,  NULL                         , writePowerUpDownAllAds8638Chips ,  "	Turn on/off all ADS8638 chips" }                                                                            ,
+
+		{ 0x600000,0xFFFFFF,NULL,DATA_INT,  readPulseCount               , NULL                            ,  "	Read pulse count from detector" }                                                   ,
+		
+		{ 0x700000,0xFFFFF0,NULL,DATA_INT,  readAin                      , NULL                            ,  " Read an adc channel on the STM32F7 (12 bit adc). [1-16] see AIN.c for details. " }        
